@@ -1,5 +1,6 @@
 // أنشئ المصفوفة تحت هذا الكومنت
 
+let orders = [];
 
 function addOrder() {
   let name = document.getElementById("name").value;
@@ -8,11 +9,16 @@ function addOrder() {
   let order = document.getElementById("order").value;
   
   // أنشئ كائن newOrder
-  
+  let newOrder = {
+    name: name,
+    id: id,
+    phone: phone,
+    order: order,
+  };
   // أدرج الكائن إلى المصفوفة
-  
+  orders.push(newOrder);
   // طبق الخطوة 7 تحت هذا الكومنت
-  
+load();
 }
 
 function load() {
@@ -20,4 +26,7 @@ function load() {
   container.innerHTML = "";
   // طبّق الخطوة 6 تحت هذا الكومنت
 
+  orders.forEach((order) => {
+    container.innerHTML +=  `<div><h1>${order.name} - ${order.id}</h1><h3>${order.order}</h3></div>`
+  });
 }
